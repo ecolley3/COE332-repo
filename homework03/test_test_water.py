@@ -28,4 +28,8 @@ def test_calc_time():
     assert calc_time(6)==88.68907721463003
     assert isinstance(calc_time(1), float) == True
 
-    
+def test_calc_time_exceptions():
+    with pytest.raises(TypeError):
+        calc_time([ { 'cal' : 1}, 1 ])
+    with pytest.raises(NameError):
+        calc_tim([ {'cal' : 1, 'detect' : 2} ], 1)    
