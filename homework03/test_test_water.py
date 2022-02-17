@@ -17,6 +17,12 @@ def test_current_turbidity():
     assert current_turbidity(data['info'], 'cal','detect',0)==2
     assert current_turbidity(data['info'], 'cal','detect',1)==8
 
+def test_current_turbidity_exceptions():
+    with pytest.raises(IndexError):
+        current_turbidity( [ {'cal' : 1, 'detect' : 2} ], 'cal',' detector', 1)
+    with pytest.raises(NameError):
+        current_turbidiy( [ {'cal' : 1, 'detect' : 2} ], 'cal', 'detect', 1)
+
 def test_calc_time():
     assert calc_time(5)==79.66446710032875
     assert calc_time(6)==88.68907721463003
