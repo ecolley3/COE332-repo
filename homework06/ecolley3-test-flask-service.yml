@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecolley3-test-flask-service
+  labels:
+    username: ecolley3
+    env: test
+spec:
+  type: ClusterIP
+  selector:
+    app: ecolley3-test-flask
+  ports:
+  - name: ecolley3-flask
+    port: 5000
+    targetPort: 5000
